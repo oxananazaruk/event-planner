@@ -46,12 +46,6 @@ export const GlobalStyle = createGlobalStyle`
         aspect-ratio: 4 / 3;
     }
 
-    .container {
-        width: 1240px;
-        padding: 0 20px;
-        margin: 0 auto;
-    }
-
     a {
         text-decoration: none;
     }
