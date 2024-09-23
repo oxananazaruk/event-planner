@@ -1,40 +1,26 @@
-import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './components/SharedLayout/SharedLayout';
-import { lazy, useEffect } from 'react';
-import { refreshUser } from './redux/auth/operations';
-import { useDispatch, useSelector } from 'react-redux';
-import { Loader } from './components/Loader/Loader';
-import { selectIsRefreshing } from './redux/auth/selectors';
-import { PrivateRoute } from './PrivateRoute';
+import { Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import { lazy } from "react";
 
-const HomePage = lazy(() => import('../src/pages/HomePage/HomePage'));
-const NanniesPage = lazy(() => import('../src/pages/NanniesPage/NanniesPage'));
-const FavoritesPage = lazy(() =>
-  import('../src/pages/FavoritesPage/FavoritesPage')
+const EventsPage = lazy(() => import("../src/pages/EventsPage/EventsPage"));
+const RegistrationPage = lazy(() =>
+  import("../src/pages/RegistrationPage/RegistrationPage")
+);
+const ParticipantsPage = lazy(() =>
+  import("../src/pages/ParticipantsPage/ParticipantsPage")
 );
 
 function App() {
-  const isRefreshing = useSelector(selectIsRefreshing);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
-
-  return isRefreshing ? (
-    <Loader />
-  ) : (
+  return (
     <Routes>
-      <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage />} />
-        <Route path="nannies" element={<NanniesPage />} />
-        <Route
-          path="favorites"
-          element={<PrivateRoute component={FavoritesPage} redirectTo="/" />}
-        />
-        <Route path="*" element={<HomePage />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<EventsPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="/participants" element={<ParticipantsPage />} />
+        <Route path="*" element={<EventsPage />} />
       </Route>
     </Routes>
   );
 }
+
 export default App;

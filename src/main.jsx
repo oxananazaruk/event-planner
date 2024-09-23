@@ -1,23 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme.js';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { PersistGate } from 'redux-persist/integration/react';
-import { persistor, store } from './redux/store.js';
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import App from "./App.jsx";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { theme } from "./vars.js";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <BrowserRouter basename="/event-planner">
+createRoot(document.getElementById("root")).render(
+  <StrictMode>
+    <BrowserRouter basename="/events-app">
       <ThemeProvider theme={theme}>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <App />
-          </PersistGate>
-        </Provider>
+        <App />
       </ThemeProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </StrictMode>
 );

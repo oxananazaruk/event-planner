@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Preloader = styled.div`
   position: fixed;
@@ -11,8 +11,8 @@ export const Preloader = styled.div`
   opacity: 1;
   visibility: visible;
   transition:
-    opacity 0.5s ease,
-    visibility 0.5s ease;
+  opacity 0.5s ease,
+  visibility 0.5s ease;
 
   height: 100vh;
   display: flex;
