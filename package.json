@@ -1,7 +1,7 @@
 {
   "name": "nanny-services",
   "private": true,
-  "homepage": "https://oxananazaruk.github.io/nanny-services/",
+  "homepage": "https://oxananazaruk.github.io/event-planner/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
