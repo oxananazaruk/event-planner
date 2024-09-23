@@ -7,7 +7,7 @@ import { theme } from "./vars.js";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/events-app">
+    <BrowserRouter basename="/event-planner">
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>
